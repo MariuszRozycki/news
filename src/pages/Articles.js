@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Scoring from "../components/Scoring";
-import Author from "../components/Author";
+import News from "../components/News";
 
-const styles = {
-  backgroundColor: "#ecf0f1",
-  border: "1px solid #2ecc71",
-  padding: 10,
-  para: {
-    backgroundColor: "#f6e58d",
+const data = [
+  { id: 1, author: 'Jan Brzeczek', title: 'Pilne: Co to był za dzień!', intro: 'Tego świat jeszcze nie widział' },
+  { id: 2, author: 'Jan Brzeczek', title: 'Wszyscy zazdroszą Polakom!', intro: 'Takiego clickbajtowego tytułu jeszcze nikt nie wymyślił' },
+  {
+    id: 3, author: 'Jan Brzeczek', title: 'Adam Małysz Zgolił wąs',
+    intro: 'Po przegranym zakładzie z Piotrem Żyłą nasz mistrz olimpijski zgolił wąsy'
   }
-}
+]
 
-function News({ header, intro, author }) {
-  const [score] = useState(4);
+function Articles() {
   return (
-    <div style={styles}>
-      <h2>{header}</h2>
-      <p style={styles.para}>{intro}</p>
-      <Scoring score={score} />
-      <Author author={author} />
-      <p>Score: {score}</p>
+    <div>
+      {data.map((element) => (
+        <News
+          key={`news-${element.id}`}
+          header={element.title}
+          author={element.author}
+          intro={element.intro}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default News;
+export default Articles;
