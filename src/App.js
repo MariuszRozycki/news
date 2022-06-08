@@ -1,7 +1,6 @@
 import React from 'react';
 
-// import Header from './components/Header';
-import { Logo, NavLink } from './components/Header';
+import Header from './components/Header';
 import News from './pages/Articles';
 import './App.css';
 
@@ -17,14 +16,7 @@ const data = [
 function App() {
   return (
     <div>
-      <div>
-        <Logo />
-        <div>
-          <NavLink to={"/"} label="link 1" />
-          <NavLink to={"/"} label="link 2" />
-          <NavLink to={"/"} label="link 3" />
-        </div>
-      </div>
+      <Header />
       {data.map((element) => (
         <News
           key={`news-${element.id}`}

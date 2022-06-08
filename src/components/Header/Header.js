@@ -1,19 +1,20 @@
 import React from "react";
 
 import Logo from "./Logo";
+import Menu from "./Menu";
 import NavLink from "./NavLink";
 
 function Header() {
   return (
     <div>
       <Logo />
-      <div>
+      <Menu>
         <NavLink to={"/"} label="link 1" />
         <NavLink to={"/"} label="link 2" />
         <NavLink to={"/"} label="link 3" />
-      </div>
+      </Menu>
     </div>
-  )
-};
+  );
+}
 
 export default Header;

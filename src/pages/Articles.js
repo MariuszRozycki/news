@@ -9,7 +9,6 @@ const styles = {
   padding: 10,
   para: {
     backgroundColor: "#f6e58d",
-    padding: 10
   }
 }
 
