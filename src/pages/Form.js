@@ -2,52 +2,40 @@ import React, { useState } from "react";
 
 class Form extends React.Component {
   state = {
-    name: ''
+    name: '',
+    surname: '',
+    age: ''
   }
 
-  // bind()
-  // constructor(props) {
-  //   super(props);
-  //   this.handleChange = this.handleChange.bind(this);
-  // } 
-
-  handleClick(event) {
-    console.log('handleClick', event);
-    console.log('React Button');
+  handleClick = (event) => {
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
   }
 
   handleChange = (event) => {
-    console.log('input value:', event.target.value);
-    this.setState({ name: event.target.value })
-    console.log('this', this);
+    // console.log('input value:', event.target.value);
+    // console.log('event target name:', event.target.name);
+    const keyName = event.target.name;
+    console.log(keyName);
+    this.setState({ [keyName]: event.target.value })
   }
 
   render() {
     return <form onSubmit={this.handleSubmit}>
-      <input type="text" onChange={this.handleChange} />
-      <button onClick={this.handleClick.bind(this)}>React Button</button> {/* bind(this) in line */}
+      <div>
+        <input type="text" name="name" placeholder="Name" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" name="surname" placeholder="Surname" onChange={this.handleChange} />
+      </div>
+      <div>
+        <input type="text" name="age" placeholder="Age" onChange={this.handleChange} />
+      </div>
+      <button type="submit" onClick={this.handleClick}>Send</button>
     </form>
   }
 }
-
-// function Form() {
-//   const handleClick = () => { console.log('React Button'); }
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     console.log(event);
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <button onClick={handleClick}>React Button</button>
-//     </form>
-//   )
-// }
 
 export default Form;
